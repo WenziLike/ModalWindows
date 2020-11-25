@@ -1,0 +1,28 @@
+//=================================================================
+// стили кнопок
+.block__btn {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 90;
+    margin: 50px;
+    // display: none;
+    .btn {
+        display: flex;
+        justify-content: center;
+        margin: 20px;
+        padding: 20px;
+        font-size: 1em;
+        font-weight: 800;
+        letter-spacing: 1px;
+        border-radius: 5px;
+        cursor: pointer;
+        background: #2c2c2c;
+        color: $color-lghtgre;
+        box-shadow: 1px 2px 4px $aliceblue;
+        &:hover {
+            background-color: #474747;
+            box-shadow: 0px 1px 1px $aliceblue;
+        }
+    }
+}

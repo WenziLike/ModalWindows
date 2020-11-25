@@ -1,0 +1,108 @@
+//=================================================================
+//! стили шаблона модального окна (оболочки)
+//=================================================================
+//появления модального окна поверх всех элементов
+//основные стили модального окна
+// overflow: hidden;
+// overflow-y: hidden; /*для вертикального*/
+// overflow-x: hidden; /*для горизонтального*/
+// overflow: auto; // задал скрол для модального окна
+// overflow-x: auto;
+// overflow-x: hidden; // задал скрол для модального окна
+.modal.open .modal__overlay,
+.modal.open .modal__window {
+    opacity: 1;
+    z-index: 1000;
+}
+.modal.hide .modal__overlay,
+.modal.hide .modal__window {
+    opacity: 1;
+    z-index: 1000;
+}
+//=================================================================
+// //!анимируем модальное окно при появлении
+.modal.open .modal__window {
+    transform: translateY(50px);
+}
+.modal.open .modal__overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow-x: hidden; // задал скрол для модального окна
+}
+
+//=================================================================
+//!анимируем фон модального окна при исчизновении
+.modal.hide .modal__window {
+    transform: translateY(-200px);
+}
+//!анимируем фон модального окна при изчизновении
+.modal.hide .modal__overlay {
+    background: rgba(0, 0, 0, 0);
+}
+//=================================================================
+//появления модального окна поверх всех элементов
+
+//скрыл модальное окно по умолчанию
+.modal__window,
+.modal__overlay {
+    opacity: 0;
+    z-index: -1;
+}
+//=================================================================
+//стили модального окна
+.modal {
+    &__overlay {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0);
+        z-index: 20;
+        transition: background 0.9s ease;
+    }
+    &__window {
+        margin: 0 auto;
+        border-radius: 5px;
+        background: $color-bgModal;
+        color: $color-white;
+        // max-width: 900px; //ширина окна //! временно
+        // transform: translateY(100px); //!временно
+        transform: translateY(-200px); //!анимируем модальное окно...
+        transition: transform 0.9s ease;
+    }
+    &__header {
+        padding: 10px 15px;
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid #91919159;
+    }
+    &__title {
+        font-size: 1.5rem;
+        font-weight: 500;
+    }
+    &__close {
+        cursor: pointer;
+        font-size: 2em;
+        &:hover {
+            color: $color-LuminescentRed;
+        }
+    }
+    &__body {
+        padding: 10px;
+    }
+    &__footer {
+        border-top: 1px solid #91919159;
+        text-align: right;
+        padding: 10px 20px;
+        .btn-danger,
+        .btn-primary {
+            font-weight: 600;
+            margin-left: 20px;
+            padding: 0 10px;
+            min-width: 100px;
+            color: $color-black;
+        }
+    }
+}
