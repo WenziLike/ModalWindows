@@ -166,14 +166,8 @@ document.addEventListener('click', event => {
     // } else { //  если событие не может быть отменено и предотвращено
     //     console.warn("Событие " + event.type + " не может быть отменено"); //  выводим в консоль информацию о том, что данное событие не может быть отменено
     // }
-
-
-
-
-
     const dataTarget = event.target.dataset.btn // берем Buttons
     const id = +event.target.dataset.id // получаем ID  кнопки 
-
 
     // проверка конпки по которой  был клик
     if (dataTarget === 'modalWindow') {

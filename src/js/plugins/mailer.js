@@ -10,6 +10,8 @@ import "regenerator-runtime/runtime.js";
 //=================================================================
 "use strict"
 
+// const mailer = require('./js/plugins/sendMailer')
+
 import { ModalBtn } from "./btnModal"
 
 function myValidate() {
@@ -47,7 +49,7 @@ function myValidate() {
                 // делаем на проверку подключения интернета
                 if (InternetConnect === true) {
                     // производим отправку
-                    let response = await fetch('#', {
+                    let response = await fetch('send.php', {
                         method: 'POST',
                         body: formData,
                     })
