@@ -45,11 +45,10 @@ function myValidate() {
             //=================================================================
             if (error === 0) {
                 form.classList.add('__sending') // если нет ошибок  добавляется класс 
-                ModalBtn()
                 // делаем на проверку подключения интернета
                 if (InternetConnect === true) {
                     // производим отправку
-                    let response = await fetch('send.php', {
+                    let response = await fetch('./../send.php', {
                         method: 'POST',
                         body: formData,
                     })
@@ -61,6 +60,7 @@ function myValidate() {
                         //! Дякуємо за Вашу заявку, ми сконтактуємось з Вами найближчим часом!!!
                         sendText.textContent = `${sendInfo.MessageSent}`
                         checkAndDelClass()
+                        ModalBtn()
                         form.classList.remove('__sending')
                     } else {
                         form.classList.remove('__sending')

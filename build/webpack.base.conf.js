@@ -19,7 +19,7 @@ const PATHS = {
 };
 
 const PAGES_DIR = `${PATHS.src}`;
-const PAGES = fs.readdirSync(PAGES_DIR).filter(fileName => fileName.endsWith('.html'));
+const PAGES = fs.readdirSync(PAGES_DIR).filter(fileName => fileName.endsWith('.html', '.php'));
 
 module.exports = {
 
@@ -140,7 +140,11 @@ module.exports = {
                 {
                     from: `${PATHS.src}/static`,
                     to: `${PATHS.assets}static`
-                }
+                },
+                {
+                    from: `${PATHS.src}/phpmailer`,
+                    to: `phpmailer`
+                },
             ]
         }),
         ...PAGES.map(page => new HtmlWebpackPlugin({
